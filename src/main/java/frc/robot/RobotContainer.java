@@ -9,6 +9,7 @@ import frc.robot.Constants.LimelightConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Climb;
 import frc.robot.commands.Load;
+import frc.robot.subsystems.Limelight;
 import frc.robot.commands.MoveWristPercent;
 import frc.robot.commands.MoveWristToPosition;
 import frc.robot.commands.RumbleWhenNote;
@@ -58,6 +59,8 @@ public class RobotContainer {
   private XboxController driver;
   private XboxController operator;
 
+  private Limelight limelight;
+
   private DriveWithJoystick driveWithJoystick;
   private ParallelCommandGroup driveAndToggle;
 
@@ -84,6 +87,8 @@ public class RobotContainer {
 
   private JoystickButton toggleFieldOrientedBtn;
   private JoystickButton toggleSlowModeBtn;
+
+  private JoystickButton chaseNoteBtn;
 
   private JoystickButton timedDriveButton;
   private JoystickButton outtakeNoteBtn;
@@ -134,6 +139,8 @@ public class RobotContainer {
     driver = new XboxController(0);
     operator = new XboxController(1);
 
+    //chase note button
+    chaseNoteBtn = new JoystickButton(operator, XboxController.Button.kB.value);
     // Intake Buttons
     xButton = new JoystickButton(operator, XboxController.Button.kX.value);
     loadButton = new JoystickButton(operator, XboxController.Button.kLeftBumper.value);
