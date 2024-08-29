@@ -140,7 +140,8 @@ public class RobotContainer {
     operator = new XboxController(1);
 
     //chase note button
-    chaseNoteBtn = new JoystickButton(operator, XboxController.Button.kB.value);
+    chaseNoteBtn = new JoystickButton(operator, XboxController.Axis.kRightTrigger.value);
+
     // Intake Buttons
     xButton = new JoystickButton(operator, XboxController.Button.kX.value);
     loadButton = new JoystickButton(operator, XboxController.Button.kLeftBumper.value);

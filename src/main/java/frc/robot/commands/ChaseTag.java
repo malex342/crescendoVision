@@ -16,18 +16,21 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Outtake;
 import frc.robot.subsystems.Wrist;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
 
 public class ChaseTag extends Command {
-    public ChaseTag main() {
+    public void main() {
         //LimelightResults llresults = LimelightHelpers.getLatestResults("");
+        ShuffleboardTab dashTab = Shuffleboard.getTab("SmartDashboard");
         NetworkTableInstance.getDefault().getTable("limelight").getEntry("tid").getDoubleArray(new double[6]);
-        if(//sees tag && xboxcontroller button 4 (y)
+       /*if canSeeTarget() && XboxController.Axis.kRightTrigger == true;
         {
-        //go to tag
-        //shoot
+        go to tag
+        shoot
         
-        }
+        }*/
     }
 }
     
