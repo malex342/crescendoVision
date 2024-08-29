@@ -27,8 +27,8 @@ public class ChaseTag extends Command {
         NetworkTableInstance.getDefault().getTable("limelight").getEntry("tid").getDoubleArray(new double[6]);
        /*if canSeeTarget() && XboxController.Axis.kRightTrigger == true;
         {
-        go to tag
-        shoot
+        
+        ALIGN APRILTAG TO CENTER OF VISION (tx == 0???)
         
         }*/
     }
