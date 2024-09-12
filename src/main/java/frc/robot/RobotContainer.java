@@ -41,6 +41,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Outtake;
 import frc.robot.subsystems.SwerveDrive;
 import frc.robot.subsystems.Wrist;
+import frc.robot.subsystems.Limelight;
 
 
 
@@ -88,7 +89,7 @@ public class RobotContainer {
   private JoystickButton toggleFieldOrientedBtn;
   private JoystickButton toggleSlowModeBtn;
 
-  private JoystickButton chaseNoteBtn;
+  private JoystickButton chaseTagBtn;
 
   private JoystickButton timedDriveButton;
   private JoystickButton outtakeNoteBtn;
@@ -139,8 +140,8 @@ public class RobotContainer {
     driver = new XboxController(0);
     operator = new XboxController(1);
 
-    //chase note button
-    chaseNoteBtn = new JoystickButton(operator, XboxController.Axis.kRightTrigger.value);
+    //chase tag button
+    chaseTagBtn = new JoystickButton(operator, XboxController.Axis.kRightTrigger.value);
 
     // Intake Buttons
     xButton = new JoystickButton(operator, XboxController.Button.kX.value);
@@ -212,6 +213,8 @@ public class RobotContainer {
    SmartDashboard.putData(wrist);
    SmartDashboard.putData(elevator);
    SmartDashboard.putData(autoChooser);
+   SmartDashboard.putBoolean("target", Limelight.canSeeTarget());
+   
   //  swerve.putOffsets(null);
     configureBindings();
   } 
@@ -247,6 +250,8 @@ public class RobotContainer {
     rotateToSpeakerBtn.whileTrue(new DriveWithJoystick(swerve, driver, true, false));
 
     climbButton.whileTrue(toggleClimbMode);
+
+  
 
     toggleFieldOrientedBtn.whileTrue(swerve.toggleFieldOriented());
     toggleSlowModeBtn.whileTrue(swerve.toggleSlowMode());

@@ -11,11 +11,13 @@ import frc.robot.Constants.LimelightConstants;
 
 public class Limelight extends SubsystemBase {
   private String limelightName;
-  private NetworkTable table;
+  private static NetworkTable table;
   public Limelight(String limelightName){
     this.limelightName = limelightName;
   }
-  public boolean canSeeTarget() {
+  public static boolean canSeeTarget() {
     return table.getEntry("tv").getDouble(0)==1; 
   }
+  
+
 }
