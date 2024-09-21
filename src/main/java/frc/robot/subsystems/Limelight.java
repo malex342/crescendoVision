@@ -20,9 +20,6 @@ public class Limelight extends SubsystemBase {
   public Limelight(String limelightName){
     this.limelightName = limelightName;
   }
-  public static boolean canSeeTarget() {
-    return table.getEntry("tv").getDouble(0)==1; 
-  }
   double tx = table.getEntry("tx").getDouble(0);
   }
 

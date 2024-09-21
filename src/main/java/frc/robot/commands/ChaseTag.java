@@ -41,10 +41,9 @@ public class ChaseTag extends Command {
     
     public ChaseTag() {
         //ALIGN APRILTAG TO CENTER OF VISION (tx == 0???)
-        SmartDashboard.putBoolean("target", Limelight.canSeeTarget());
-        
         pidController = new PIDController(11, 0, 0.01);
         pidController.reset();
+        System.out.println(tx);
     } 
 
   @Override
@@ -53,6 +52,12 @@ public class ChaseTag extends Command {
   @Override
   public void execute() {
         new RotateToAngle(tx, swerve);
+        if(tx != 0){
+            new RotateToAngle((0-tx), swerve);
+            System.out.println(tx);
+            System.out.println("test");
+        }
   }
 }
+
 //SmartDashboard.putData("target",canSeeTarget());    

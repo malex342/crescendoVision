@@ -212,9 +212,7 @@ public class RobotContainer {
    SmartDashboard.putData(intake);
    SmartDashboard.putData(wrist);
    SmartDashboard.putData(elevator);
-   SmartDashboard.putData(autoChooser);
-   SmartDashboard.putBoolean("target", Limelight.canSeeTarget());
-   
+   SmartDashboard.putData(autoChooser);   
   //  swerve.putOffsets(null);
     configureBindings();
   } 
