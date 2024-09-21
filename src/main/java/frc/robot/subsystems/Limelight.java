@@ -9,15 +9,20 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.LimelightHelpers;
 import frc.robot.Constants.LimelightConstants;
 
+
+
 public class Limelight extends SubsystemBase {
+  
+
   private String limelightName;
   private static NetworkTable table;
+  
   public Limelight(String limelightName){
     this.limelightName = limelightName;
   }
   public static boolean canSeeTarget() {
     return table.getEntry("tv").getDouble(0)==1; 
   }
-  
+  double tx = table.getEntry("tx").getDouble(0);
+  }
 
-}

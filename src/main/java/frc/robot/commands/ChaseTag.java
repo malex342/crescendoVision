@@ -5,6 +5,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.util.sendable.Sendable;
@@ -26,24 +28,31 @@ import edu.wpi.first.wpilibj.XboxController.Axis;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.SwerveModule;
+
 
 
 public class ChaseTag extends Command {
-    public void main() {
-
-        /*XboxController.Button rightTriggerButton = XboxController.getTriggerAxis(XboxController.kRightTrigger) >= 0.5;
-        //LimelightResults llresults = LimelightHelpers.getLatestResults("");
-        ShuffleboardTab dashTab = Shuffleboard.getTab("SmartDashboard");
-        NetworkTableInstance.getDefault().getTable("limelight").getEntry("tid").getDoubleArray(new double[6]);
-        /*TK*/ /*&& rightTriggerButton.onTrue(System.out.println("test")); /*if canSeeTarget() && XboxController.Axis.kRightTrigger == true;
-        {
-        
-        ALIGN APRILTAG TO CENTER OF VISION (tx == 0???)
-        
-        }* */
+    private PIDController pidController;
+    private static NetworkTable table;
+    private SwerveDrive swerve;
+    double tx = table.getEntry("tx").getDouble(0);
+    
+    
+    public ChaseTag() {
+        //ALIGN APRILTAG TO CENTER OF VISION (tx == 0???)
         SmartDashboard.putBoolean("target", Limelight.canSeeTarget());
         
-    }
-    
+        pidController = new PIDController(11, 0, 0.01);
+        pidController.reset();
+    } 
+
+  @Override
+  public void initialize() {}
+
+  @Override
+  public void execute() {
+        new RotateToAngle(tx, swerve);
+  }
 }
 //SmartDashboard.putData("target",canSeeTarget());    
